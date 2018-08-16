@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "EditReviewPage";
+}
+@model KnowDetroit.Models.Review
+
+<style>
+    body {
+        background-image: url(http://res.cloudinary.com/dvhowme2s/image/upload/c_scale,w_1300/v1529501303/Detroit/Detroit.jpg);
+        background-attachment: fixed;
+    }
+</style>
+<span id="largedetails">Edit review for @Model.SiteName</span>
+<form action="/Home/UpdateReview" method="post">
+
+    <input type="text" value="@Model.SiteName" name="SiteName" hidden />
+    <input type="text" value="@Model.ReviewNumber" name="ReviewNumber" hidden />
+    <Span id="details">Recommended: </Span><select value="@Model.Recommended" name="Recommended">
+
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+    </select><br />
+    <Span id="details">Rating: </Span><select name="Rating">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+    </select> <br />
+    <Span id="details">Review:</Span> <input type="text" value="@Model.Review1" name="Review1" /><br />
+
+    <input type="submit" value="Save updates" />
+</form>
+<br />
+<a href="/Home/ListOfLandmarks" class="btn btn-default">Return to Landmarks</a>
+<a href="/Home/ShowUserReviews" class="btn btn-default">Return to Your Reviews</a>

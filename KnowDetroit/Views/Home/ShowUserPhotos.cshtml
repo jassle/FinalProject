@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "ShowUserPhotos";
+}
+
+<style>
+    body {
+        background-image: url(http://res.cloudinary.com/dvhowme2s/image/upload/c_scale,w_1300/v1529501303/Detroit/Detroit.jpg);
+        background-attachment: fixed;
+    }
+</style>
+<br />
+<div class="panel-collapse">
+    <div class="panel-primary" style="display: flex; flex-wrap: wrap; flex-direction:row; align-content:center; background-color:rgba(0,0,0,.5); padding-top:50px; padding-left:50px; padding-bottom:50px">
+        @foreach (var c in ViewBag.UserPhotos)
+        {
+            if (c.imageURL == null)
+            {
+                <h1> </h1>
+            }
+            else
+            {
+                <div class="col-md-4 col-xs-2">
+                    <img src="@c.imageURL" />
+                </div>
+            }
+        }
+    </div>
+</div>
+<br/>
+<a href="/Home/ListOfLandmarks" class="btn btn-default">Return to Landmarks</a>
+
+
